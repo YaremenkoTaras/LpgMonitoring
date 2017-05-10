@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.yaremenko.lpgmonitoring.entities.Event" table="event" schema="lpg_monitoring">
+        <id name="id" column="id"/>
+        <property name="date" column="date"/>
+        <property name="type" column="type"/>
+        <property name="value" column="value"/>
+        <property name="temperature" column="temperature"/>
+        <property name="location" column="location"/>
+        <many-to-one class="com.yaremenko.lpgmonitoring.entities.MeasureSystem" fetch="join" name="measureSystem" lazy="false">
+            <column name="measure_system_id" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

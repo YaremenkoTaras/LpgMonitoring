@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.yaremenko.lpgmonitoring.entities.MeasureSystem" table="measure_system" schema="lpg_monitoring">
+        <id name="id" column="id"/>
+        <property name="serialnumber" column="serialnumber"/>
+        <property name="description" column="description"/>
+        <property name="placement" column="placement"/>
+        <property name="inspection" column="inspection"/>
+        <many-to-one class="com.yaremenko.lpgmonitoring.entities.Company" fetch="join" name="company" lazy="false">
+            <column name="company_id" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>
