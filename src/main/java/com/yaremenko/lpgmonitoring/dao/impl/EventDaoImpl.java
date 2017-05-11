@@ -1,6 +1,6 @@
 package com.yaremenko.lpgmonitoring.dao.impl;
 
-import com.yaremenko.lpgmonitoring.dao.interfaces.EventDAO;
+import com.yaremenko.lpgmonitoring.dao.interfaces.EventDao;
 import com.yaremenko.lpgmonitoring.entities.*;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,7 @@ import java.util.List;
  * @since 21.04.2017
  */
 @Component
-public class EventDaoImpl implements EventDAO {
+public class EventDaoImpl implements EventDao {
 
     @Autowired
     private SessionFactory sessionFactory;

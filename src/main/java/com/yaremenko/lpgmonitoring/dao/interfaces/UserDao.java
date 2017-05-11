@@ -9,7 +9,7 @@ import java.util.List;
  * @author Taras
  * @since 20.04.2017
  */
-public interface UserDAO {
+public interface UserDao {
 
     List<User> getUsers(Company company);
     User getUser(Integer userId);

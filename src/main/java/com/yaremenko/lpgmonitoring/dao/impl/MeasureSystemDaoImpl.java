@@ -1,6 +1,6 @@
 package com.yaremenko.lpgmonitoring.dao.impl;
 
-import com.yaremenko.lpgmonitoring.dao.interfaces.MeasureSystemDAO;
+import com.yaremenko.lpgmonitoring.dao.interfaces.MeasureSystemDao;
 import com.yaremenko.lpgmonitoring.entities.Company;
 import com.yaremenko.lpgmonitoring.entities.MeasureSystem;
 import com.yaremenko.lpgmonitoring.entities.MeasureSystem_;
@@ -18,7 +18,7 @@ import java.util.List;
  * @since 21.04.2017
  */
 @Component
-public class MeasureSystemDaoImpl implements MeasureSystemDAO {
+public class MeasureSystemDaoImpl implements MeasureSystemDao {
 
     @Autowired
     private SessionFactory sessionFactory;

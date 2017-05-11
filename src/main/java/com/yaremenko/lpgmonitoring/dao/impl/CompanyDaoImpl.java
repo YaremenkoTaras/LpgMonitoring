@@ -1,6 +1,6 @@
 package com.yaremenko.lpgmonitoring.dao.impl;
 
-import com.yaremenko.lpgmonitoring.dao.interfaces.CompanyDAO;
+import com.yaremenko.lpgmonitoring.dao.interfaces.CompanyDao;
 import com.yaremenko.lpgmonitoring.entities.Company;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,7 @@ import java.util.List;
  * @since 21.04.2017
  */
 @Component
-public class CompanyDaoImpl implements CompanyDAO {
+public class CompanyDaoImpl implements CompanyDao {
 
     @Autowired
     private SessionFactory sessionFactory;

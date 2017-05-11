@@ -1,6 +1,6 @@
 package com.yaremenko.lpgmonitoring.dao.impl;
 
-import com.yaremenko.lpgmonitoring.dao.interfaces.UserDAO;
+import com.yaremenko.lpgmonitoring.dao.interfaces.UserDao;
 import com.yaremenko.lpgmonitoring.entities.Company;
 import com.yaremenko.lpgmonitoring.entities.User;
 import com.yaremenko.lpgmonitoring.entities.User_;
@@ -19,7 +19,7 @@ import java.util.List;
  * @since 20.04.2017
  */
 @Component
-public class UserDaoImpl implements UserDAO{
+public class UserDaoImpl implements UserDao {
 
 
     @Autowired

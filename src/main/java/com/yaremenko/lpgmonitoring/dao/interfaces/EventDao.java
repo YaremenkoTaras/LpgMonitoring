@@ -11,7 +11,7 @@ import java.util.List;
  * @author Taras
  * @since 21.04.2017
  */
-public interface EventDAO {
+public interface EventDao {
 
     List<Event> getEvents(MeasureSystem system);
     List<Event> getEvents(Company company);

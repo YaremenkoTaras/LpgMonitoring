@@ -9,7 +9,7 @@ import java.util.List;
  * @author Taras
  * @since 21.04.2017
  */
-public interface MeasureSystemDAO {
+public interface MeasureSystemDao {
 
 
     List<MeasureSystem> getMeasureSystems(Company company);
