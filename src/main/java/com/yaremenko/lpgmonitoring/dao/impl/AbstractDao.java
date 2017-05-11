@@ -34,21 +34,25 @@ public abstract class AbstractDao<T , ID extends Serializable> implements Dao <T
         sessionFactory.openSession().persist(entity);
     }
 
+    @Transactional
     @Override
     public void saveOrUpdateEntity(T entity) {
         sessionFactory.openSession().saveOrUpdate(entity);
     }
 
+    @Transactional
     @Override
     public void delete(T entity) {
         sessionFactory.openSession().delete(entity);
     }
 
+    @Transactional
     @Override
     public T findById(ID id) {
         return (T) sessionFactory.openSession().get(persistentClass, id);
     }
 
+    @Transactional
     @Override
     public List<T> findAll() {
 
@@ -62,7 +66,7 @@ public abstract class AbstractDao<T , ID extends Serializable> implements Dao <T
         return list;
     }
 
-    protected Class<T> getPersistentClass() {
+    /*protected Class<T> getPersistentClass() {
         return persistentClass;
-    }
+    }*/
 }
