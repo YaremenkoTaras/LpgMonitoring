@@ -34,7 +34,7 @@ public class MeasureSystemDaoImpl extends AbstractDao<MeasureSystem,Integer> imp
         criteria.select(root);
         criteria.where(builder.equal(root.get(MeasureSystem_.company),company));
 
-        List<MeasureSystem>  measureSystems = sessionFactory.openSession().createQuery(criteria).getResultList();
+        List<MeasureSystem>  measureSystems = sessionFactory.getCurrentSession().createQuery(criteria).getResultList();
 
         return measureSystems;
     }
@@ -42,6 +42,6 @@ public class MeasureSystemDaoImpl extends AbstractDao<MeasureSystem,Integer> imp
     @Transactional
     @Override
     public MeasureSystem getMeasureSystem(Integer serialNumber) {
-        return sessionFactory.openSession().find(MeasureSystem.class, serialNumber);
+        return sessionFactory.getCurrentSession().find(MeasureSystem.class, serialNumber);
     }
 }

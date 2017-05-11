@@ -35,7 +35,7 @@ public class UserDaoImpl extends AbstractDao<User,Integer> implements UserDao {
         criteria.select(root);
         criteria.where(builder.equal(root.get(User_.company),company));
 
-        List<User>  users = sessionFactory.openSession().createQuery(criteria).getResultList();
+        List<User>  users = sessionFactory.getCurrentSession().createQuery(criteria).getResultList();
 
         return users;
     }

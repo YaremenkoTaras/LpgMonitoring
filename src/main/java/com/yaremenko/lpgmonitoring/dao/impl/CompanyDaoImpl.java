@@ -31,7 +31,7 @@ public class CompanyDaoImpl extends AbstractDao<Company,Integer> implements Comp
         Root<Company> root = criteria.from(Company.class);
         criteria.select(root);
 
-        List<Company>  companies = sessionFactory.openSession().createQuery(criteria).getResultList();
+        List<Company>  companies = sessionFactory.getCurrentSession().createQuery(criteria).getResultList();
 
         return companies;
     }

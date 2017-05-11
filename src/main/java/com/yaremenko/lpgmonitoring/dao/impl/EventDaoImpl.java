@@ -31,7 +31,7 @@ public class EventDaoImpl extends AbstractDao<Event,Integer> implements EventDao
         criteria.select(root);
         criteria.where(builder.equal(root.get(Event_.measureSystem), system));
 
-        List<Event> eventList = sessionFactory.openSession().createQuery(criteria).getResultList();
+        List<Event> eventList = sessionFactory.getCurrentSession().createQuery(criteria).getResultList();
 
         return eventList;
     }
@@ -47,7 +47,7 @@ public class EventDaoImpl extends AbstractDao<Event,Integer> implements EventDao
         Predicate predicate = builder.equal(systemJoin.get(MeasureSystem_.company), company);
         criteria.select(root);
         criteria.where(predicate);
-        List<Event> eventList = sessionFactory.openSession().createQuery(criteria).getResultList();
+        List<Event> eventList = sessionFactory.getCurrentSession().createQuery(criteria).getResultList();
 
         return eventList;
     }
@@ -65,7 +65,7 @@ public class EventDaoImpl extends AbstractDao<Event,Integer> implements EventDao
                 builder.lessThan(root.get(Event_.date), toDate)
                 ));
 
-        List<Event> eventList = sessionFactory.openSession().createQuery(criteria).getResultList();
+        List<Event> eventList = sessionFactory.getCurrentSession().createQuery(criteria).getResultList();
 
         return eventList;
     }

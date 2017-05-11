@@ -31,25 +31,25 @@ public abstract class AbstractDao<T , ID extends Serializable> implements Dao <T
     @Transactional
     @Override
     public void createEntity(T entity) {
-        sessionFactory.openSession().persist(entity);
+        sessionFactory.getCurrentSession().persist(entity);
     }
 
     @Transactional
     @Override
     public void saveOrUpdateEntity(T entity) {
-        sessionFactory.openSession().saveOrUpdate(entity);
+        sessionFactory.getCurrentSession().saveOrUpdate(entity);
     }
 
     @Transactional
     @Override
     public void delete(T entity) {
-        sessionFactory.openSession().delete(entity);
+        sessionFactory.getCurrentSession().delete(entity);
     }
 
     @Transactional
     @Override
     public T findById(ID id) {
-        return (T) sessionFactory.openSession().get(persistentClass, id);
+        return (T) sessionFactory.getCurrentSession().get(persistentClass, id);
     }
 
     @Transactional
@@ -61,7 +61,7 @@ public abstract class AbstractDao<T , ID extends Serializable> implements Dao <T
         Root<T> root = criteria.from(persistentClass);
         criteria.select(root);
 
-        List<T>  list = sessionFactory.openSession().createQuery(criteria).getResultList();
+        List<T>  list = sessionFactory.getCurrentSession().createQuery(criteria).getResultList();
         System.out.println(list);
         return list;
     }
