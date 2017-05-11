@@ -19,7 +19,7 @@ import java.util.List;
  * @since 20.04.2017
  */
 @Component
-public class UserDaoImpl implements UserDao {
+public class UserDaoImpl extends AbstractDao<User,Integer> implements UserDao {
 
 
     @Autowired
@@ -35,15 +35,8 @@ public class UserDaoImpl implements UserDao {
         criteria.select(root);
         criteria.where(builder.equal(root.get(User_.company),company));
 
-        List<User>  users = sessionFactory.getCurrentSession().createQuery(criteria).getResultList();
+        List<User>  users = sessionFactory.openSession().createQuery(criteria).getResultList();
 
         return users;
-    }
-
-    @Transactional
-    @Override
-    public User getUser(Integer userId) {
-
-        return sessionFactory.getCurrentSession().find(User.class, userId);
     }
 }

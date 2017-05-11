@@ -8,7 +8,7 @@ import java.util.List;
  * @author Taras
  * @since 21.04.2017
  */
-public interface CompanyDao{
+public interface CompanyDao extends Dao<Company,Integer>{
 
     List<Company> getCompanies();
 

@@ -1,20 +1,21 @@
 package com.yaremenko.lpgmonitoring.dao.interfaces;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * @author Taras
  * @since 11.05.2017
  */
-public interface Dao <T>{
+public interface Dao <T , ID extends Serializable>{
 
-    void create(T entity);
+    void createEntity(T entity);
 
-    void update(T entity);
+    void saveOrUpdateEntity(T entity);
 
     void delete(T entity);
 
-    T findById();
+    T findById(ID id);
 
     List<T> findAll();
 

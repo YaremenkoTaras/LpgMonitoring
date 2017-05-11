@@ -6,7 +6,7 @@
     <view-state id="main">
 
         <on-render>
-            <evaluate expression= "null "/>
+            <evaluate expression= "userDaoImpl.findById(1)"/>
         </on-render>
 
     </view-state>

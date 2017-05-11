@@ -9,10 +9,10 @@ import java.util.List;
  * @author Taras
  * @since 21.04.2017
  */
-public interface MeasureSystemDao {
+public interface MeasureSystemDao extends Dao<MeasureSystem,Integer>{
 
 
     List<MeasureSystem> getMeasureSystems(Company company);
-    MeasureSystem getMeasureSystems(Integer serialNumber);
+    MeasureSystem getMeasureSystem(Integer serialNumber);
 
 }

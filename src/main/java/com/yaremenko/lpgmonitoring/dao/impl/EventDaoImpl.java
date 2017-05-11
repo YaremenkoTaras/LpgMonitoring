@@ -16,7 +16,7 @@ import java.util.List;
  * @since 21.04.2017
  */
 @Component
-public class EventDaoImpl implements EventDao {
+public class EventDaoImpl extends AbstractDao<Event,Integer> implements EventDao {
 
     @Autowired
     private SessionFactory sessionFactory;
@@ -31,7 +31,7 @@ public class EventDaoImpl implements EventDao {
         criteria.select(root);
         criteria.where(builder.equal(root.get(Event_.measureSystem), system));
 
-        List<Event> eventList = sessionFactory.getCurrentSession().createQuery(criteria).getResultList();
+        List<Event> eventList = sessionFactory.openSession().createQuery(criteria).getResultList();
 
         return eventList;
     }
@@ -47,7 +47,7 @@ public class EventDaoImpl implements EventDao {
         Predicate predicate = builder.equal(systemJoin.get(MeasureSystem_.company), company);
         criteria.select(root);
         criteria.where(predicate);
-        List<Event> eventList = sessionFactory.getCurrentSession().createQuery(criteria).getResultList();
+        List<Event> eventList = sessionFactory.openSession().createQuery(criteria).getResultList();
 
         return eventList;
     }
@@ -65,14 +65,8 @@ public class EventDaoImpl implements EventDao {
                 builder.lessThan(root.get(Event_.date), toDate)
                 ));
 
-        List<Event> eventList = sessionFactory.getCurrentSession().createQuery(criteria).getResultList();
+        List<Event> eventList = sessionFactory.openSession().createQuery(criteria).getResultList();
 
         return eventList;
-    }
-
-    @Transactional
-    @Override
-    public Event getEvent(Integer id) {
-        return sessionFactory.getCurrentSession().find(Event.class, id);
     }
 }

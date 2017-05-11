@@ -7,6 +7,7 @@ import com.yaremenko.lpgmonitoring.entities.MeasureSystem_;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -18,11 +19,12 @@ import java.util.List;
  * @since 21.04.2017
  */
 @Component
-public class MeasureSystemDaoImpl implements MeasureSystemDao {
+public class MeasureSystemDaoImpl extends AbstractDao<MeasureSystem,Integer> implements MeasureSystemDao {
 
     @Autowired
     private SessionFactory sessionFactory;
 
+    @Transactional
     @Override
     public List<MeasureSystem> getMeasureSystems(Company company) {
 
@@ -32,13 +34,14 @@ public class MeasureSystemDaoImpl implements MeasureSystemDao {
         criteria.select(root);
         criteria.where(builder.equal(root.get(MeasureSystem_.company),company));
 
-        List<MeasureSystem>  measureSystems = sessionFactory.getCurrentSession().createQuery(criteria).getResultList();
+        List<MeasureSystem>  measureSystems = sessionFactory.openSession().createQuery(criteria).getResultList();
 
         return measureSystems;
     }
 
+    @Transactional
     @Override
-    public MeasureSystem getMeasureSystems(Integer serialNumber) {
-        return sessionFactory.getCurrentSession().find(MeasureSystem.class, serialNumber);
+    public MeasureSystem getMeasureSystem(Integer serialNumber) {
+        return sessionFactory.openSession().find(MeasureSystem.class, serialNumber);
     }
 }

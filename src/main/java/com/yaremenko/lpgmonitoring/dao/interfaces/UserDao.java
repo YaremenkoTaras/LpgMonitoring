@@ -9,9 +9,8 @@ import java.util.List;
  * @author Taras
  * @since 20.04.2017
  */
-public interface UserDao {
+public interface UserDao extends Dao<User,Integer>{
 
     List<User> getUsers(Company company);
-    User getUser(Integer userId);
 
 }

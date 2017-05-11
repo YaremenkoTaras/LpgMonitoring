@@ -17,7 +17,7 @@ import java.util.List;
  * @since 21.04.2017
  */
 @Component
-public class CompanyDaoImpl implements CompanyDao {
+public class CompanyDaoImpl extends AbstractDao<Company,Integer> implements CompanyDao {
 
     @Autowired
     private SessionFactory sessionFactory;
@@ -31,7 +31,7 @@ public class CompanyDaoImpl implements CompanyDao {
         Root<Company> root = criteria.from(Company.class);
         criteria.select(root);
 
-        List<Company>  companies = sessionFactory.getCurrentSession().createQuery(criteria).getResultList();
+        List<Company>  companies = sessionFactory.openSession().createQuery(criteria).getResultList();
 
         return companies;
     }

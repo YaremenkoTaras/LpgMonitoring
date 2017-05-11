@@ -13,10 +13,6 @@
     <mapping resource="com/yaremenko/lpgmonitoring/entities/Event.hbm.xml"/>
     <mapping resource="com/yaremenko/lpgmonitoring/entities/MeasureSystem.hbm.xml"/>
     <mapping resource="com/yaremenko/lpgmonitoring/entities/User.hbm.xml"/>
-    <mapping resource="com/yaremenko/lpgmonitoring/entities/MeasureSystem.hbm.xml"/>
-    <mapping class="com.yaremenko.lpgmonitoring.entities.MeasureSystem"/>
-    <mapping resource="com/yaremenko/lpgmonitoring/entities/MeasureSystem.hbm.xml"/>
-
 
     <!-- DB schema will be updated if needed -->
     <!-- <property name="hbm2ddl.auto">update</property> -->
