@@ -46,6 +46,7 @@
 
         <logout logout-success-url="/app/login" logout-url="/app/logout"/>
         <csrf disabled="true"/>
+
     </http>
 
 
