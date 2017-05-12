@@ -28,7 +28,7 @@
         <springsecurity-version>4.2.0.RELEASE</springsecurity-version>
         <slf4j-version>1.7.21</slf4j-version>
         <mojarra-version>2.2.13</mojarra-version>
-        <primefaces-version>6.0</primefaces-version>
+        <primefaces-version>5.2</primefaces-version>
         <hibernate-version>5.2.9.Final</hibernate-version>
         <mysql-connector-version>5.1.39</mysql-connector-version>
     </properties>
@@ -98,6 +98,11 @@
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-config</artifactId>
+            <version>${springsecurity-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-taglibs</artifactId>
             <version>${springsecurity-version}</version>
         </dependency>
 
